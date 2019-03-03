@@ -32,6 +32,8 @@
     - 物理地址：物理内存实际使用的地址
     - 线性地址：是逻辑地址到物理地址变换之间的中间层。
     - 逻辑地址：在有地址变换功能的计算机中，访问指令给出的地址叫逻辑地址。
+- 你认为从实模式切换到保护模式需要注意那些方面？
+  - 建立保护模式必需的一些数据表，如全局描述符 表GDT和中断描述符表IDT等。
 - 你理解的risc-v的特权模式有什么区别？不同模式在地址访问方面有何特征？
   - 运行于机器模式（M-mode）下的代码是固有可信的，因为他可以在低层次访问机器的实现。用户模式（U-mode）和管理员模式（S-mode）被分别用于传统应用程序和操作系统，而H模式则是为了支持虚拟机监视器。
   - 在机器模式下访问的是物理地址，而用户模式和管理员模式访问的是虚拟地址。实现了 M 和 U 模式的处理器具有一个叫做物理内存保护（PMP，Physical Memory Protection）的功能，允许 M 模式指定 U 模式可以访问的内存地址。与 U 模式一样，S 模式下运行的软件不能使用 M 模式的 CSR 和指令，并且受到 PMP 的限制。
@@ -96,17 +98,26 @@ https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes/lab1/boot/bootasm.S
 
 2. (option)请在rcore中找一段你认为难度适当的RV汇编代码，尝试解释其含义。
 
+
 #### 练习二
 
 宏定义和引用在内核代码中很常用。请枚举ucore或rcore中宏定义的用途，并举例描述其含义。
 
 
-
 定义常数以及定义简单的函数，例如上面提到的的SETGATE就是一种设定中断门描述的函数宏。利用宏进行复杂数据结构中的数据访问； 利用宏进行数据类型转换；如 to_struct, 常用功能的代码片段优化；如 ROUNDDOWN, SetPageDirty
 
-#### reference
+## 问答题
+
+#### 在配置实验环境时，你遇到了那些问题，是如何解决的。
+
+
+## 参考资料
  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
  - [x86汇编指令集  ](http://hiyyp1234.blog.163.com/blog/static/67786373200981811422948/)
  - [PC Assembly Language, Paul A. Carter, November 2003.](https://pdos.csail.mit.edu/6.828/2016/readings/pcasm-book.pdf)
  - [*Intel 80386 Programmer's Reference Manual*, 1987](https://pdos.csail.mit.edu/6.828/2016/readings/i386/toc.htm)
  - [IA-32 Intel Architecture Software Developer's Manuals](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html)
+ - [v9 cpu architecture](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/docs/v9_computer.md)
+ - [RISC-V cpu architecture](http://www.riscvbook.com/chinese/)
+ - [OS相关经典论文](https://github.com/chyyuu/aos_course_info/blob/master/readinglist.md)
+
