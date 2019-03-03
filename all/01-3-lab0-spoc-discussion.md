@@ -102,7 +102,7 @@ https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes/lab1/boot/bootasm.S
 
 
 
-通常有两种用途：定义常数以及定义简单的函数，例如上面提到的的SETGATE就是一种设定中断门描述的函数宏
+定义常数以及定义简单的函数，例如上面提到的的SETGATE就是一种设定中断门描述的函数宏。利用宏进行复杂数据结构中的数据访问； 利用宏进行数据类型转换；如 to_struct, 常用功能的代码片段优化；如 ROUNDDOWN, SetPageDirty
 
 #### reference
  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
